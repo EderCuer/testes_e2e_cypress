@@ -11,7 +11,9 @@
   "author": "Eder Cuer",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "cypress": "^12.15.0",
+    "cypress-mailosaur": "^2.13.0",
     "eslint": "^8.43.0",
     "eslint-plugin-cypress": "^2.13.3"
   }
