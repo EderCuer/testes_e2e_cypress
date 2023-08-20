@@ -7,6 +7,9 @@ module.exports = defineConfig({
     responseTimeout: 10000,
     requestTimeout: 10000,
     chromeWebSecurity: false,
+    env: {
+      viewportWidthBreakpoint: 768,
+    },
     // eslint-disable-next-line no-unused-vars
     setupNodeEvents(on, config) {
       // implement node event listeners here
