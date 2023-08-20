@@ -15,18 +15,16 @@ Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
   }).then(message => {
     const confirmationCode = message.html.body.match(/\d{6}/)[0]
     cy.get('#confirmationCode').type(`${confirmationCode}{enter}`)
-    cy.wait('@getNotes')
   })
 })
 
-Cypress.Commands.add('guiLogin', (email, password) => {
+Cypress.Commands.add('guiLogin', (email = Cypress.env('USER_EMAIL'), password = Cypress.env('USER_PASSWORD')) => {
   cy.intercept('GET', '**/notes').as('getNotes')
 
   cy.visit('/login')
   cy.get('#email').type(email)
   cy.get('#password').type(password, { log: false })
   cy.contains('button', 'Login').click()
-  cy.wait('@getNotes')
 })
 
 Cypress.Commands.add('sessionLogin', (username = Cypress.env('USER_EMAIL'), password = Cypress.env('USER_PASSWORD')) => {
@@ -45,7 +43,6 @@ Cypress.Commands.add('createNote', (note, attachFile = false) => {
   cy.contains('button', 'Create').click()
 
   cy.contains('.list-group-item', note).should('be.visible')
-  cy.wait('@getNotes')
 })
 
 Cypress.Commands.add('editNote', (note, newNoteValue, attachFile = false) => {
@@ -68,8 +65,6 @@ Cypress.Commands.add('editNote', (note, newNoteValue, attachFile = false) => {
 
   cy.contains('.list-group-item', newNoteValue).should('be.visible')
   cy.contains('.list-group-item', note).should('not.exist')
-
-  cy.wait('@getNotes')
 })
 
 Cypress.Commands.add('deleteNote', note => {
@@ -81,6 +76,24 @@ Cypress.Commands.add('deleteNote', note => {
     .should('be.at.least', 1)
   cy.contains('.list-group-item', note)
     .should('not.exist')
+})
 
-  cy.wait('@getNotes')
+Cypress.Commands.add('fillSettingsFormAndSubmit', () => {
+  cy.visit('/settings')
+  cy.get('#storage').type('1')
+  cy.get('#name').type('Mary Doe')
+  cy.iframe('.card-field iframe')
+    .as('iframe')
+    .find('[name="cardnumber"]')
+    .type('4242424242424242')
+  cy.get('@iframe')
+    .find('[name="exp-date"]')
+    .type('1271')
+  cy.get('@iframe')
+    .find('[name="cvc"]')
+    .type('123')
+  cy.get('@iframe')
+    .find('[name="postal"]')
+    .type('12345')
+  cy.contains('button', 'Purchase').click()
 })
