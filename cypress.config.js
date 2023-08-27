@@ -1,6 +1,7 @@
 const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
+  projectId: 'zb6qa7',
   e2e: {
     baseUrl: 'https://notes-serverless-app.com',
     defaultCommandTimeout: 30000,
