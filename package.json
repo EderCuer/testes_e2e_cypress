@@ -1,7 +1,7 @@
 {
   "name": "testes-e2e",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto de exemplo para demonstrar testes de ponta a ponta (e2e) escritos com o Cypress sendo executados no GitHub Actions.",
   "main": "cypress.config.js",
   "scripts": {
     "lint": "eslint cypress/**/*.js && eslint cypress.config.js",

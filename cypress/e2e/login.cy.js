@@ -1,3 +1,5 @@
+/// <reference path="../support/commands.d.ts" />
+
 describe('Login', () => {
   it('successfully log in', () => {
     cy.sessionLogin(Cypress.env('USER_EMAIL'), Cypress.env('USER_PASSWORD'))
