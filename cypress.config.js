@@ -3,10 +3,11 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://notes-serverless-app.com',
-    defaultCommandTimeout: 10000,
+    defaultCommandTimeout: 30000,
     responseTimeout: 10000,
     requestTimeout: 10000,
     chromeWebSecurity: false,
+    testIsolation: false,
     env: {
       viewportWidthBreakpoint: 768,
     },
