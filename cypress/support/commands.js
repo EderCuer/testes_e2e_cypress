@@ -25,6 +25,8 @@ Cypress.Commands.add('guiLogin', (email = Cypress.env('USER_EMAIL'), password = 
   cy.get('#email').type(email)
   cy.get('#password').type(password, { log: false })
   cy.contains('button', 'Login').click()
+  cy.wait('@getNotes')
+  cy.contains('h1', 'Your Notes').should('be.visible')
 })
 
 Cypress.Commands.add('sessionLogin', (username = Cypress.env('USER_EMAIL'), password = Cypress.env('USER_PASSWORD')) => {
