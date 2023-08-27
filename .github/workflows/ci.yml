@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Run end-to-end tests on desktop viewport 🧪
+      - name: Run end-to-end tests on desktop viewport 🚀
         uses: cypress-io/github-action@v5
         env:
           CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Run end-to-end tests on tablet viewport 🧪
+      - name: Run end-to-end tests on tablet viewport 🚀
         uses: cypress-io/github-action@v5
         env:
           CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
