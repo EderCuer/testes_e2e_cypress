@@ -40,6 +40,46 @@ Execute `npm run cy:open` para abrir o **Cypress App** e rodar os testes no modo
 
 Execute `npm run cy:open:tablet` para abrir o **Cypress App** e rodar os testes no modo interativo usando uma visualização de tablet.
 
----
+___________________
 
-Feito com ❤️ por [Eder Cuer](https://www.linkedin.com/in/edercuer/).
+# End-to-End Testing with Cypress
+
+Sample project to demonstrate end-to-end (e2e) tests written with [Cypress](https://cypress.io) running on GitHub Actions.
+
+## Prerequisites
+
+To clone and run this project, you will need:
+
+- [git](https://git-scm.com/downloads) (I used version `2.34.1` while writing this document)
+- [Node.js](https://nodejs.org/en/) (I used version `v18.15.0` while writing this document)
+- npm (I used version `9.5.0` while writing this document)
+
+**Note:** When you install Node.js, npm is automatically installed. 🚀
+
+## Installation
+
+To install the development dependencies, run `npm install` (or `npm i` for brevity).
+
+## Setting up environment variables
+
+Before running the tests, some environment variables need to be configured.
+
+Make a copy of the file [`cypress.env.example.json`](./cypress.env.example.json) as `cypress.env.json`, and set the appropriate values for all variables.
+
+**Note:** The `cypress.env.json` file is not tracked by git, as it is listed in the `.gitignore` file.
+
+## Running the tests
+
+In this project, you can run the tests in both interactive and headless modes, on both desktop and tablet views.
+
+### Headless mode
+
+Run `npm test` (or `npm t` for brevity) to run all tests in headless mode using a desktop view.
+
+Run `npm run test:tablet` to run the appropriate tests in headless mode using a tablet view.
+
+### Interactive mode
+
+Run `npm run cy:open` to open the **Cypress App** and run the tests in interactive mode using a desktop view.
+
+Run `npm run cy:open:tablet` to open the **Cypress App** and run the tests in interactive mode using a tablet view.
